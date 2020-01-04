@@ -17,9 +17,7 @@ beforeEach(async() => {
 })
 // Here are the tests that we need to check for:
 describe('Inbox', () => {
-    
     it('deploys a contract', () => {
-        // assert.equal(car.park(), 'stopped')
-        console.log(inbox)
+        assert.ok(inbox.options.address)
     })
 })
