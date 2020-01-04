@@ -20,4 +20,15 @@ describe('Inbox', () => {
     it('deploys a contract', () => {
         assert.ok(inbox.options.address)
     })
+
+    it('stores initial message properly', async () => {
+        const message = await inbox.methods.message().call()
+        assert.equal('Hello world', message)
+    })
+
+    it('updates the message properly', async() => {
+        await inbox.methods.setMessage('Hello mehran').send({from: accounts[0]})
+        const newMessage = await inbox.methods.message().call()
+        assert.equal('Hello mehran', newMessage)
+    })
 })
